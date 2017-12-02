@@ -29,15 +29,18 @@ class PCFG(object):
     def is_terminal(self, symbol):
         return symbol not in self._rules
 
-    def gen(self, symbol):
+    def gen(self, symbol, tree_structure):
         if self.is_terminal(symbol):
             return symbol
         else:
             expansion = self.random_expansion(symbol)
-            return " ".join(self.gen(s) for s in expansion)
+            generated = " ".join(self.gen(s, tree_structure) for s in expansion)
+            if tree_structure:
+                generated = '(' + symbol + ' ' + generated + ')'
+            return generated
 
-    def random_sent(self):
-        return self.gen("ROOT")
+    def random_sent(self, tree_structure):
+        return self.gen("ROOT", tree_structure)
 
     def random_expansion(self, symbol):
         """
@@ -58,22 +61,26 @@ def exit_with_msg(msg):
 if __name__ == '__main__':
     import sys
 
+    argv = sys.argv
+    argc = len(argv) - 1
+    if argc == 0:
+        exit_with_msg('need grammar file')
+
     pcfg = PCFG.from_file(sys.argv[1])
 
-    argc = len(sys.argv) - 1
-    if argc > 3 or argc == 0 or argc == 2:
-        exit_with_msg('invalid number of arguments')
+    num_sentences = 1
+    is_tree_structure = False
+    sentence_num_token = '-n'
+    tree_structure_token = '-t'
 
-    numSentences = 0
-    if argc == 1:
-        numSentences = 1
-    elif sys.argv[2] != '-n':
-        exit_with_msg('wrong format - ' + sys.argv[2] + ', valid format is -n')
-    else:
-        numSentences = int(sys.argv[3])
-        if numSentences < 1:
-            exit_with_msg('number of sentences need to be a positive value')
+    if sentence_num_token in argv:  # -n
+        num_sentences = int(argv[argv.index(sentence_num_token) + 1])
+        if num_sentences < 1:
+            exit_with_msg('number of sentences need to be a positive number')
+
+    if tree_structure_token in argv:  # -t
+        is_tree_structure = True
 
     # print sentences
-    for _ in xrange(numSentences):
-        print pcfg.random_sent()
+    for _ in xrange(num_sentences):
+        print pcfg.random_sent(is_tree_structure)
