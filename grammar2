@@ -20,17 +20,19 @@
 #    PastRegVerb = regular verb, does not need to be followed by an object
 #    Conj = conjunction
 
-3	S	NP VP
+3	S	NP VPG
 1   S   NP is Adj
 3	VP	is PresentContVerb NP
 5	VP	PastContVerb NP
 5   VP  PastRegVerb
-3   VP  Verb5 SBAR
-1   VP  VP Conj VP  # assign less weight (?)
-6	NP	Det Noun
-3   NP  ProperNoun
-1	NP	NP Prep NP
-1	NP	NP Conj NP
+3   VP  ReportVerb SBAR
+7   VPG  VP
+1   VPG  VP Conj VP
+3	NN	Det Noun
+1   NN  ProperNoun
+7	NP	NN
+1	NP	NN Prep NN
+1	NP	NN Conj NN
 3	Noun    Adj Noun
 1   SBAR    COMP S
 
@@ -40,6 +42,8 @@
 # Vocabulary.
 
 1   PresentContVerb eating
+1   PresentContVerb making
+1   PresentContVerb ruining
 
 1	PastRegVerb	ate
 1	PastRegVerb	understood
@@ -54,9 +58,10 @@
 1	PastContVerb	perplexed
 1	PastContVerb	worked
 
-1   Verb5   thought # TODO pick good name...
-1   Verb5   said
-1   Verb5   claimed
+1   ReportVerb   thought
+1   ReportVerb   said
+1   ReportVerb   said
+1   ReportVerb   claimed
 
 1   COMP    that
 
@@ -76,6 +81,10 @@
 1   Noun    desk
 
 1   ProperNoun   Sally
+1   ProperNoun   Amos
+1   ProperNoun   Daniel
+1   ProperNoun   Jon
+1   ProperNoun   Sam
 
 1	Adj	fine
 1	Adj	delicious
