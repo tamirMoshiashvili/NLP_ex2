@@ -6,6 +6,7 @@
 1	ROOT	is it true that S ?
 
 # The basic grammar rules.  Here's what the abbreviations stand for:
+#
 #    Non Terminals:
 #    S  = sentence
 #    NPG = noun phrase group (one or two separated by Conj)
@@ -28,27 +29,37 @@
 #    PresentContVerb = continues verb in present progressive, verb that need to be followed by one object
 #    Conj = conjunction
 #    Comp = complementizer
+#
+
 
 3	S	NP VPG
 1   S   NP is Adj
+
 3	VP	is PresentContVerb NP
-5	VP	PastContVerb NP
-5   VP  PastRegVerb
+7	VP	PastContVerb NP
+3   VP  PastRegVerb Prep NP
+4   VP  PastRegVerb
 3   VP  ReportVerb SBAR
+
 7   VPG  VP
 1   VPG  VP Conj VP
+
 3	NN	Det Noun
 1   NN  ProperNoun
+
 7	NP	NN
 1	NP	NN Prep NN
 1	NP	NN Conj NN
+
 3	Noun    Adj Noun
+
 1   SBAR    Comp S
 
 
 
-
-# Vocabulary.
+###############
+# Vocabulary. #
+###############
 
 1   PresentContVerb eating
 1   PresentContVerb making
@@ -57,6 +68,7 @@
 1	PastRegVerb	ate
 1	PastRegVerb	understood
 1   PastRegVerb sighed
+1	PastRegVerb	worked
 
 
 1	PastContVerb	wanted
@@ -65,7 +77,7 @@
 1	PastContVerb	ate
 1	PastContVerb	understood
 1	PastContVerb	perplexed
-1	PastContVerb	worked
+
 
 1   ReportVerb   thought
 1   ReportVerb   said
