@@ -18,10 +18,12 @@
 #    Adj = adjective
 #    ContVerb = continues verb, verb that need to be followed by an object
 #    RegVerb = regular verb, does not need to be followed by an object
+#    Conj = conjunction
 
 1	S	NP VP
-1	VP	ContVerb NP
-1   VP  RegVerb
+2	VP	ContVerb NP
+2   VP  RegVerb
+1   VP  VP Conj VP  # assign less weight (?)
 3	NP	Det Noun
 1	NP	NP PP
 1	PP	Prep NP
@@ -38,3 +40,31 @@
 1	ContVerb	pickled
 1	ContVerb	ate
 1	ContVerb	understood
+1	ContVerb	perplexed
+1	ContVerb	worked
+
+1   Conj    and
+1   Conj    or
+
+1	Det	the
+1	Det	a
+1	Det	every
+
+1	Noun	president
+1	Noun	sandwich
+1	Noun	pickle
+1	Noun	chief of staff
+1	Noun	floor
+1   Noun    proposal
+1   Noun    desk
+
+1	Adj	fine
+1	Adj	delicious
+1	Adj	perplexed
+1	Adj	pickled
+1	Adj	lazy
+
+1	Prep	with
+1	Prep	on
+1	Prep	under
+1	Prep	in
