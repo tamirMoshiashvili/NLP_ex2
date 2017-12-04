@@ -8,17 +8,26 @@
 # The basic grammar rules.  Here's what the abbreviations stand for:
 #    Non Terminals:
 #    S  = sentence
-#    NP = noun phrase
+#    NPG = noun phrase group (one or two separated by Conj)
+#    NP = noun phrase or group of nouns (separated by Conj or by Prep)
+#    NN = noun
+#    VPG = verb phrase group
 #    VP = verb phrase
-#    PP = prepositional phrase
+#    VP = verb phrase
+#    PP = prepositional phrase (one or two separated by Conj)
+#    SBAR = clause sentence
 #
 #    Pre Terminals:
 #    Det = determiner
+#    ProperNoun = Proper Noun
 #    Prep = preposition
 #    Adj = adjective
-#    PastContVerb = continues verb, verb that need to be followed by an object
+#    PastContVerb = continues verb, verb that need to be followed by one object
 #    PastRegVerb = regular verb, does not need to be followed by an object
+#    ReportVerb = Report verb, vreb that followed by a that-clause acting
+#    PresentContVerb = continues verb in present progressive, verb that need to be followed by one object
 #    Conj = conjunction
+#    Comp = complementizer
 
 3	S	NP VPG
 1   S   NP is Adj
@@ -34,7 +43,7 @@
 1	NP	NN Prep NN
 1	NP	NN Conj NN
 3	Noun    Adj Noun
-1   SBAR    COMP S
+1   SBAR    Comp S
 
 
 
@@ -63,7 +72,7 @@
 1   ReportVerb   said
 1   ReportVerb   claimed
 
-1   COMP    that
+1   Comp    that
 
 1   Conj    and
 1   Conj    or
