@@ -1,0 +1,40 @@
+
+# Rules for creating full sentences.
+
+1	ROOT	S .
+1	ROOT	S !
+1	ROOT	is it true that S ?
+
+# The basic grammar rules.  Here's what the abbreviations stand for:
+#    Non Terminals:
+#    S  = sentence
+#    NP = noun phrase
+#    VP = verb phrase
+#    PP = prepositional phrase
+#
+#    Pre Terminals:
+#    Det = determiner
+#    Prep = preposition
+#    Adj = adjective
+#    ContVerb = continues verb, verb that need to be followed by an object
+#    RegVerb = regular verb, does not need to be followed by an object
+
+1	S	NP VP
+1	VP	ContVerb NP
+1   VP  RegVerb
+3	NP	Det Noun
+1	NP	NP PP
+1	PP	Prep NP
+3	Noun    Adj Noun
+
+# Vocabulary.
+
+1	RegVerb	ate
+1	RegVerb	understood
+1   RegVerb sighed
+
+1	ContVerb	wanted
+1	ContVerb	kissed
+1	ContVerb	pickled
+1	ContVerb	ate
+1	ContVerb	understood

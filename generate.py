@@ -61,6 +61,7 @@ def exit_with_msg(msg):
 if __name__ == '__main__':
     import sys
 
+    # grammar file
     argv = sys.argv
     argc = len(argv) - 1
     if argc == 0:
@@ -68,6 +69,7 @@ if __name__ == '__main__':
 
     pcfg = PCFG.from_file(sys.argv[1])
 
+    # define tokens and vars
     num_sentences = 1
     is_tree_structure = False
     sentence_num_token = '-n'
