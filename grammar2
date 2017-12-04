@@ -1,8 +1,8 @@
 
 # Rules for creating full sentences.
 
-1	ROOT	S .
-1	ROOT	S !
+2	ROOT	S .
+2	ROOT	S !
 1	ROOT	is it true that S ?
 
 # The basic grammar rules.  Here's what the abbreviations stand for:
@@ -16,32 +16,49 @@
 #    Det = determiner
 #    Prep = preposition
 #    Adj = adjective
-#    ContVerb = continues verb, verb that need to be followed by an object
-#    RegVerb = regular verb, does not need to be followed by an object
+#    PastContVerb = continues verb, verb that need to be followed by an object
+#    PastRegVerb = regular verb, does not need to be followed by an object
 #    Conj = conjunction
 
-1	S	NP VP
-2	VP	ContVerb NP
-2   VP  RegVerb
+3	S	NP VP
+1   S   NP is Adj
+3	VP	is PresentContVerb NP
+5	VP	PastContVerb NP
+5   VP  PastRegVerb
+3   VP  Verb5 SBAR
 1   VP  VP Conj VP  # assign less weight (?)
-3	NP	Det Noun
-1	NP	NP PP
-1	PP	Prep NP
+6	NP	Det Noun
+3   NP  ProperNoun
+1	NP	NP Prep NP
+1	NP	NP Conj NP
 3	Noun    Adj Noun
+1   SBAR    COMP S
+
+
+
 
 # Vocabulary.
 
-1	RegVerb	ate
-1	RegVerb	understood
-1   RegVerb sighed
+1   PresentContVerb eating
 
-1	ContVerb	wanted
-1	ContVerb	kissed
-1	ContVerb	pickled
-1	ContVerb	ate
-1	ContVerb	understood
-1	ContVerb	perplexed
-1	ContVerb	worked
+1	PastRegVerb	ate
+1	PastRegVerb	understood
+1   PastRegVerb sighed
+
+
+1	PastContVerb	wanted
+1	PastContVerb	kissed
+1	PastContVerb	pickled
+1	PastContVerb	ate
+1	PastContVerb	understood
+1	PastContVerb	perplexed
+1	PastContVerb	worked
+
+1   Verb5   thought # TODO pick good name...
+1   Verb5   said
+1   Verb5   claimed
+
+1   COMP    that
 
 1   Conj    and
 1   Conj    or
@@ -57,6 +74,8 @@
 1	Noun	floor
 1   Noun    proposal
 1   Noun    desk
+
+1   ProperNoun   Sally
 
 1	Adj	fine
 1	Adj	delicious
