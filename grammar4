@@ -11,7 +11,9 @@
 #    S  = sentence
 #    NPG = noun phrase group (one or two separated by Conj)
 #    NP = noun phrase or group of nouns (separated by Conj or by Prep)
-#    NN = noun
+#    NN = noun generic
+#    Noun = noun that do not start with vowel.
+#    VNoun = noun that start with vowel.
 #    VPG = verb phrase group
 #    VP = verb phrase
 #    PP = prepositional phrase (one or two separated by Conj)
@@ -21,7 +23,8 @@
 #    Det = determiner
 #    ProperNoun = Proper Noun
 #    Prep = preposition
-#    Adj = adjective
+#    Adj = adjective that do not start with vowel
+#    VAdj = adjective that start with vowel
 #    PastContVerb = continues verb, verb that need to be followed by one object
 #    PastRegVerb = regular verb, does not need to be followed by an object
 #    PastCauseVerb = verb that need to be followed by one object and the cause of the verb
@@ -33,7 +36,8 @@
 
 
 5	S	NP VPG
-2   S   NP is Adj
+1   S   NP is Adj
+1   S   NP is VAdj
 1   S   it PastCauseVerb NP SBAR
 
 3	VP	is PresentContVerb NP
@@ -46,13 +50,19 @@
 1   VPG  VP Conj VP
 
 3	NN	Det Noun
+1   NN  a Noun
+1   NN  an VNoun
 1   NN  ProperNoun
+
+2   VNoun   VAdj Noun
+2   VNoun   VAdj VNoun
 
 7	NP	NN
 1	NP	NN Prep NN
 1	NP	NN Conj NN
 
-3	Noun    Adj Noun
+2	Noun    Adj Noun
+2	Noun    Adj VNoun
 
 1   SBAR    Comp S
 
@@ -92,8 +102,8 @@
 1   Conj    and
 1   Conj    or
 
+
 1	Det	the
-1	Det	a
 1	Det	every
 
 1	Noun	president
@@ -103,6 +113,12 @@
 1	Noun	floor
 1   Noun    proposal
 1   Noun    desk
+
+1   VNoun   apple
+1   VNoun   umbrella
+1   VNoun   hour
+1   VNoun   angel
+1   VNoun   actress
 
 1   ProperNoun   Sally
 1   ProperNoun   Amos
@@ -117,8 +133,17 @@
 1	Adj	lazy
 1	Adj	lovely
 1	Adj	sweet
+1	Adj	very
+
+1   VAdj easy
+1   VAdj attractive
+1   VAdj efficient
+1   VAdj unique
+1   VAdj old
+1   VAdj ambivalent
 
 1	Prep	with
 1	Prep	on
 1	Prep	under
 1	Prep	in
+
