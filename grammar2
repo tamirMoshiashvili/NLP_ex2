@@ -25,7 +25,7 @@
 #    PastContVerb = continues verb, verb that need to be followed by one object
 #    PastRegVerb = regular verb, does not need to be followed by an object
 #    PastCauseVerb = verb that need to be followed by one object and the cause of the verb
-#    ReportVerb = Report verb, vreb that followed by a that-clause acting
+#    ReportVerb = Report verb, verb that followed by a that-clause acting
 #    PresentContVerb = continues verb in present progressive, verb that need to be followed by one object
 #    Conj = conjunction
 #    Comp = complementizer
@@ -36,21 +36,21 @@
 2   S   NP is Adj
 1   S   it PastCauseVerb NP SBAR
 
+7   VPG  VP
+1   VPG  VP Conj VP
+
 3	VP	is PresentContVerb NP
 7	VP	PastContVerb NP
 3   VP  PastRegVerb Prep NP
 4   VP  PastRegVerb
 3   VP  ReportVerb SBAR
 
-7   VPG  VP
-1   VPG  VP Conj VP
-
-3	NN	Det Noun
-1   NN  ProperNoun
-
 7	NP	NN
 1	NP	NN Prep NN
 1	NP	NN Conj NN
+
+3	NN	Det Noun
+1   NN  ProperNoun
 
 3	Noun    Adj Noun
 
@@ -70,7 +70,6 @@
 1	PastRegVerb	understood
 1   PastRegVerb sighed
 1	PastRegVerb	worked
-1	PastRegVerb	wanted
 
 1   PastCauseVerb perplexed
 1   PastCauseVerb pleased
@@ -81,7 +80,7 @@
 1	PastContVerb	ate
 1	PastContVerb	understood
 1	PastContVerb	perplexed
-
+1	PastContVerb	wanted
 
 1   ReportVerb   thought
 1   ReportVerb   said

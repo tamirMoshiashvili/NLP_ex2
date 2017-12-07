@@ -1,3 +1,7 @@
+# Implemented the following rules:
+# Rule (a) - 'a' vs. 'an'
+# Rule ()
+
 
 # Rules for creating full sentences.
 
@@ -32,7 +36,6 @@
 #    PresentContVerb = continues verb in present progressive, verb that need to be followed by one object
 #    Conj = conjunction
 #    Comp = complementizer
-#
 
 
 5	S	NP VPG
@@ -40,14 +43,20 @@
 1   S   NP is VAdj
 1   S   it PastCauseVerb NP SBAR
 
+7   VPG  VP
+1   VPG  VP Conj VP
+
 3	VP	is PresentContVerb NP
 7	VP	PastContVerb NP
 3   VP  PastRegVerb Prep NP
 4   VP  PastRegVerb
 3   VP  ReportVerb SBAR
 
-7   VPG  VP
-1   VPG  VP Conj VP
+1   SBAR    Comp S
+
+7	NP	NN
+1	NP	NN Prep NN
+1	NP	NN Conj NN
 
 3	NN	Det Noun
 1   NN  a Noun
@@ -57,15 +66,8 @@
 2   VNoun   VAdj Noun
 2   VNoun   VAdj VNoun
 
-7	NP	NN
-1	NP	NN Prep NN
-1	NP	NN Conj NN
-
 2	Noun    Adj Noun
 2	Noun    Adj VNoun
-
-1   SBAR    Comp S
-
 
 
 ###############
@@ -80,7 +82,6 @@
 1	PastRegVerb	understood
 1   PastRegVerb sighed
 1	PastRegVerb	worked
-1	PastRegVerb	wanted
 
 1   PastCauseVerb perplexed
 1   PastCauseVerb pleased
@@ -90,8 +91,8 @@
 1	PastContVerb	pickled
 1	PastContVerb	ate
 1	PastContVerb	understood
+1	PastContVerb	wanted
 1	PastContVerb	perplexed
-
 
 1   ReportVerb   thought
 1   ReportVerb   said
@@ -146,4 +147,3 @@
 1	Prep	on
 1	Prep	under
 1	Prep	in
-
