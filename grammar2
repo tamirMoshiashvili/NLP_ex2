@@ -14,7 +14,6 @@
 #    NN = noun
 #    VPG = verb phrase group
 #    VP = verb phrase
-#    PP = prepositional phrase (one or two separated by Conj)
 #    SBAR = clause sentence
 #
 #    Pre Terminals:

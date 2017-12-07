@@ -1,6 +1,6 @@
 # Implemented the following rules:
 # Rule (a) - 'a' vs. 'an'
-# Rule ()
+# Rule (b) - YES/NO question
 
 
 # Rules for creating full sentences.
@@ -8,11 +8,13 @@
 2	ROOT	S .
 2	ROOT	S !
 1	ROOT	is it true that S ?
+2   ROOT    YNQ ?
 
 # The basic grammar rules.  Here's what the abbreviations stand for:
 #
-#    Non Terminals:
+#    ------------------------------ Non Terminals: ------------------------------
 #    S  = sentence
+#    YNQ = yes/no question sentence
 #    NPG = noun phrase group (one or two separated by Conj)
 #    NP = noun phrase or group of nouns (separated by Conj or by Prep)
 #    NN = noun generic
@@ -20,10 +22,9 @@
 #    VNoun = noun that start with vowel.
 #    VPG = verb phrase group
 #    VP = verb phrase
-#    PP = prepositional phrase (one or two separated by Conj)
 #    SBAR = clause sentence
 #
-#    Pre Terminals:
+#    ------------------------------ Pre Terminals: ------------------------------
 #    Det = determiner
 #    ProperNoun = Proper Noun
 #    Prep = preposition
@@ -32,16 +33,27 @@
 #    PastContVerb = continues verb, verb that need to be followed by one object
 #    PastRegVerb = regular verb, does not need to be followed by an object
 #    PastCauseVerb = verb that need to be followed by one object and the cause of the verb
-#    ReportVerb = Report verb, vreb that followed by a that-clause acting
+#    ReportVerb = Report verb, verb that followed by a that-clause acting
 #    PresentContVerb = continues verb in present progressive, verb that need to be followed by one object
 #    Conj = conjunction
 #    Comp = complementizer
+#
+#    YNQWord = yes/no question-word
+#    DesQWord = description question word, for yes/no question of description, like does Sally fine ?
+#    BVPG = base verb-phrase group
+#    BVP = base verb-phrase
+#    BaseRegVerb = basic verb, V1, without an object following it
+#    BaseCauseVerb = basic verb, V1, need to be followed by one object and the cause of the verb
+#    BaseContVerb = basic verb, V1, need to be followed by one object
+#    BaseReportVerb = basic verb, V1, followed by a that-clause acting
 
 
 5	S	NP VPG
 1   S   NP is Adj
 1   S   NP is VAdj
 1   S   it PastCauseVerb NP SBAR
+
+1   SBAR    Comp S
 
 7   VPG  VP
 1   VPG  VP Conj VP
@@ -52,7 +64,18 @@
 4   VP  PastRegVerb
 3   VP  ReportVerb SBAR
 
-1   SBAR    Comp S
+1   YNQ DesQWord NP Adj
+1   YNQ DesQWord NP VAdj
+1   YNQ DesQWord NP BaseRegVerb
+1   YNQ YNQWord it BaseCauseVerb NP SBAR
+3   YNQ YNQWord NP BVPG
+
+9   BVPG    BVP
+1   BVPG    BVP Conj BVP
+
+1   BVP BaseRegVerb
+1   BVP BaseContVerb NP
+1   BVP BaseReportVerb SBAR
 
 7	NP	NN
 1	NP	NN Prep NN
@@ -98,11 +121,30 @@
 1   ReportVerb   said
 1   ReportVerb   claimed
 
+1   BaseRegVerb    eat
+1   BaseRegVerb    understand
+1   BaseRegVerb    sigh
+1   BaseRegVerb    work
+
+1   BaseCauseVerb    perplex
+1   BaseCauseVerb    please
+1   BaseCauseVerb    displease
+
+1   BaseContVerb    kiss
+1   BaseContVerb    pickle
+1   BaseContVerb    eat
+1   BaseContVerb    understand
+1   BaseContVerb    want
+1   BaseContVerb    perplex
+
+1   BaseReportVerb    think
+1   BaseReportVerb    say
+1   BaseReportVerb    claim
+
 1   Comp    that
 
 1   Conj    and
 1   Conj    or
-
 
 1	Det	the
 1	Det	every
@@ -147,3 +189,13 @@
 1	Prep	on
 1	Prep	under
 1	Prep	in
+
+# 1   YNQWord is
+1   YNQWord did
+1   YNQWord will
+1   YNQWord can
+1   YNQWord could
+
+1   DesQWord    is
+1   DesQWord    do
+1   DesQWord    does
