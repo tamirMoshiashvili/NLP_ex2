@@ -1,3 +1,4 @@
+
 # Implemented the following rules:
 # Rule (a) - 'a' vs. 'an'
 # Rule (b) - YES/NO question
@@ -14,7 +15,6 @@
 #
 #    ------------------------------ Non Terminals: ------------------------------
 #    S  = sentence
-#    YNQ = yes/no question sentence
 #    NPG = noun phrase group (one or two separated by Conj)
 #    NP = noun phrase or group of nouns (separated by Conj or by Prep)
 #    NN = noun generic
@@ -23,6 +23,10 @@
 #    VPG = verb phrase group
 #    VP = verb phrase
 #    SBAR = clause sentence
+#
+#    YNQ = yes/no question sentence
+#    BVPG = base verb-phrase group
+#    BVP = base verb-phrase
 #
 #    ------------------------------ Pre Terminals: ------------------------------
 #    Det = determiner
@@ -40,8 +44,6 @@
 #
 #    YNQWord = yes/no question-word
 #    DesQWord = description question word, for yes/no question of description, like does Sally fine ?
-#    BVPG = base verb-phrase group
-#    BVP = base verb-phrase
 #    BaseRegVerb = basic verb, V1, without an object following it
 #    BaseCauseVerb = basic verb, V1, need to be followed by one object and the cause of the verb
 #    BaseContVerb = basic verb, V1, need to be followed by one object
@@ -64,9 +66,11 @@
 4   VP  PastRegVerb
 3   VP  ReportVerb SBAR
 
+# description question
 1   YNQ DesQWord NP Adj
 1   YNQ DesQWord NP VAdj
 1   YNQ DesQWord NP BaseRegVerb
+# regular yes/no question
 1   YNQ YNQWord it BaseCauseVerb NP SBAR
 3   YNQ YNQWord NP BVPG
 
@@ -190,7 +194,9 @@
 1	Prep	under
 1	Prep	in
 
-# 1   YNQWord is
+1   YNQWord is
+1   YNQWord do
+1   YNQWord does
 1   YNQWord did
 1   YNQWord will
 1   YNQWord can
