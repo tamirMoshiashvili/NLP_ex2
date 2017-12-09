@@ -10,6 +10,8 @@
 2	ROOT	S !
 1	ROOT	is it true that S ?
 2   ROOT    YNQ ?
+1   ROOT    NEWS .
+1   ROOT    INTERVIEW
 
 # The basic grammar rules.  Here's what the abbreviations stand for:
 #
@@ -48,6 +50,11 @@
 #    BaseCauseVerb = basic verb, V1, need to be followed by one object and the cause of the verb
 #    BaseContVerb = basic verb, V1, need to be followed by one object
 #    BaseReportVerb = basic verb, V1, followed by a that-clause acting
+#
+#   NEWS = description about something or someone as a news report
+#   LIVE_NEWS = live news report about something that happened
+#   INTERVIEW = interview session with someone, include yes/no questions and answers on each of them
+#   YN = yes or no answer
 
 
 5	S	NP VPG
@@ -96,10 +103,23 @@
 2	Noun    Adj Noun
 2	Noun    Adj VNoun
 
+1   NEWS    LIVE_NEWS
+1   NEWS    INTERVIEW
+
+1   LIVE_NEWS   We are very glad to announce that NP VPG , join us live on ' Prep Noun ' channel
+1   LIVE_NEWS   We are very sorry to announce that NP VPG , stay with us for more information
+1   LIVE_NEWS   We are now live from the crime scene with ProperNoun , please tell us what is happening right bow
+
+5   INTERVIEW   Q: YNQ ? Ans: YN .
+1   INTERVIEW   Q: YNQ ? Ans: YN . INTERVIEW
+
 
 ###############
 # Vocabulary. #
 ###############
+
+1   YN  yes
+1   YN  no
 
 1   PresentContVerb eating
 1   PresentContVerb making
