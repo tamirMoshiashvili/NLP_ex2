@@ -10,8 +10,7 @@
 2	ROOT	S !
 1	ROOT	is it true that S ?
 2   ROOT    YNQ ?
-1   ROOT    NEWS .
-1   ROOT    INTERVIEW
+2   ROOT    NEWS .
 
 # The basic grammar rules.  Here's what the abbreviations stand for:
 #
@@ -55,6 +54,7 @@
 #   LIVE_NEWS = live news report about something that happened
 #   INTERVIEW = interview session with someone, include yes/no questions and answers on each of them
 #   YN = yes or no answer
+#   ACCUSATION = accusation of someone about something
 
 
 5	S	NP VPG
@@ -105,13 +105,18 @@
 
 1   NEWS    LIVE_NEWS
 1   NEWS    INTERVIEW
+1   NEWS    ACCUSATION
 
 1   LIVE_NEWS   We are very glad to announce that NP VPG , join us live on ' Prep Noun ' channel
 1   LIVE_NEWS   We are very sorry to announce that NP VPG , stay with us for more information
 1   LIVE_NEWS   We are now live from the crime scene with ProperNoun , please tell us what is happening right bow
+1   LIVE_NEWS   And now , we are about to tell you on NP PresentContVerb NP , stay with us for more information
 
 5   INTERVIEW   Q: YNQ ? Ans: YN .
 1   INTERVIEW   Q: YNQ ? Ans: YN . INTERVIEW
+
+1   ACCUSATION  The main suspect here - NP , accused PresentContVerb NP , wait for more updates
+1   ACCUSATION  We are still searching for the one Comp in charge of PresentContVerb NP
 
 
 ###############
@@ -124,6 +129,11 @@
 1   PresentContVerb eating
 1   PresentContVerb making
 1   PresentContVerb ruining
+1   PresentContVerb stealing
+1   PresentContVerb helping
+1   PresentContVerb showing
+1   PresentContVerb killing
+1   PresentContVerb breaking
 
 1	PastRegVerb	ate
 1	PastRegVerb	understood
@@ -192,6 +202,7 @@
 1   ProperNoun   Daniel
 1   ProperNoun   Jon
 1   ProperNoun   Sam
+1   ProperNoun   Tomer
 
 1	Adj	fine
 1	Adj	delicious
