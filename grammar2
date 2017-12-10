@@ -18,7 +18,7 @@
 #
 #    Pre Terminals:
 #    Det = determiner
-#    ProperNoun = Proper Noun
+#    InformedNoun = Informed Noun
 #    Prep = preposition
 #    Adj = adjective
 #    PastContVerb = continues verb, verb that need to be followed by one object
@@ -49,7 +49,7 @@
 1	NP	NN Conj NN
 
 3	NN	Det Noun
-1   NN  ProperNoun
+1   NN  InformedNoun
 
 3	Noun    Adj Noun
 
@@ -102,11 +102,11 @@
 1   Noun    proposal
 1   Noun    desk
 
-1   ProperNoun   Sally
-1   ProperNoun   Amos
-1   ProperNoun   Daniel
-1   ProperNoun   Jon
-1   ProperNoun   Sam
+1   InformedNoun   Sally
+1   InformedNoun   Amos
+1   InformedNoun   Daniel
+1   InformedNoun   Jon
+1   InformedNoun   Sam
 
 1	Adj	fine
 1	Adj	delicious
