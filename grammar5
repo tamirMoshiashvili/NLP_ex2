@@ -63,7 +63,7 @@
 #    WARNING = Weak, Strong or Public warning sentences
 #    Other = Third person words.
 #    Forms = forms words - like "should" and "ought to".
-#    CautioN = warning words - like "Denger".
+#    CautioN = warning words - like "Danger".
 
 
 5	S	NP VPG
@@ -283,5 +283,5 @@
 
 1   CautioN Caution
 1   CautioN Warning
-1   CautioN Denger
+1   CautioN Danger
 1   CautioN Beware
